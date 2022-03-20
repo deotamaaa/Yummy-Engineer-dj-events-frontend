@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import React from 'react';
 import styles from '@/styles/Header.module.css';
-
+import Search from './Search';
 export default function Header() {
   return (
     <header className={styles.header}>
@@ -10,7 +10,7 @@ export default function Header() {
           <a>Dj Events</a>
         </Link>
       </div>
-
+      <Search />
       <nav>
         <ul>
           <li>
