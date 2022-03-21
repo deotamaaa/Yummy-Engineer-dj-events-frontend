@@ -4,14 +4,18 @@ import 'react-toastify/dist/ReactToastify.css';
 import { useState, useEffect, useContext } from 'react';
 import Link from 'next/link';
 import Layout from '@/components/Layout';
+import AuthContext from '@/context/AuthContext';
 import styles from '@/styles/AuthForm.module.css';
 
 export default function LoginPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
+  const { login, error } = useContext(AuthContext);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+    login({ email, password });
   };
 
   return (
@@ -46,7 +50,7 @@ export default function LoginPage() {
         </form>
         <p>
           Don{`'`}t have an account ?
-          <Link href="/account/register">Register</Link>
+          <Link href="/account/register"> Register</Link>
         </p>
       </div>
     </Layout>
